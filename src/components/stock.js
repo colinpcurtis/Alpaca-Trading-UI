@@ -2,32 +2,44 @@ import React, { Component } from 'react'
 import alpacaAPI from '../Services/alpacaAPI';
 
 class Stocks extends Component {
-     state = {
-          previouslyRendered: false,
-          position: ["ABC"]
-     }
+     // state = {
+     //      previouslyRendered: false,
+     //      position: ["ABC"]
+     // }
 
      // make constructor to do initial render
 
-     createPositions = () => {
+     // createPositions = () => {
 
-          // const positions = ["ABC", "DEF"];
-          if (!this.state.previouslyRendered) {
-               const newItem = "DEF";
-               this.setState( {position: this.state.position.concat(newItem)} )
-               this.setState( {previouslyRendered: !this.state.previouslyRendered} )
-          };
+     //      // const positions = ["ABC", "DEF"];
+     //      if (!this.state.previouslyRendered) {
+     //           const newItem = "DEF";
+     //           this.setState( {position: this.state.position.concat(newItem)} )
+     //           this.setState( {previouslyRendered: !this.state.previouslyRendered} )
+     //      };
+     // }
+
+     // getPositions = () => {
+     //      this.state.position.map((asset) => <li key={asset}>{asset}</li>)
+     //      console.log(this.state.position)
+     // };
+
+     constructor(props) {
+          super(props);
+          if (this.props.data.previouslyRendered) {
+               this.props.data.positions.map(el => console.log(el.qty));
+               <p>hi</p>
+          }
+          else {
+               <p>nothing to display</p>
+          }
+          
      }
-
-     getPositions = () => {
-          this.state.position.map((asset) => <li key={asset}>{asset}</li>)
-          console.log(this.state.position)
-     };
 
      render() { 
           return (
                <div>
-                    <span>{this.createPositions()}</span>
+                    
 
                </div>
            );
