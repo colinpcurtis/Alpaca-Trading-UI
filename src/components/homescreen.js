@@ -30,6 +30,7 @@ class Home extends Component {
      dataStyle = {
           fontSize: 15,
           fontWeight: "bold",
+          flexWrap: "wrap",
           display: 'flex',
           flexDirection: "column",
      }
@@ -90,34 +91,45 @@ class Home extends Component {
           return this.state.account.map(el => 
                <div>
                     <ul>
-                         <li>
-                         {Object.entries(el).map([key, value] => )}
-                         </li>
+                         {Object.entries(el).map(([key, value]) => 
+                              <li key={key}>{key}: <b>{String(value)}</b></li>
+                         )}
                     </ul>
 
                </div>
-
-          })
+          )}
           // this.state.account.map((el) =>
           //      <div>
           //           <li key={el} style={this.dataStyle}> Account: <b style={this.accountStyle}>{el.status}</b> Value: <b style={this.accountStyle}>${el.equity}</b> Cash: <b style={this.accountStyle}>${el.cash}</b></li>
           //      </div>
           // );
-     }
+     // }
 
     
 
      render() { 
           return ( 
                <div>
-                    <NavBar/>
-                    <p style={this.style}>Account</p>
-                    <button onClick={this.getAccount}>Get Account</button>
-                    <ul>{this.displayAccount()}</ul>
-                    <p style={this.style}>Current Positions</p>
-                    <Stocks style={this.style} data={this.state}/>
-                    <ul>{this.displayPositions()}</ul>
-                    <button onClick={this.getPositions}>Reload</button>
+                    <div>
+                         <NavBar/>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 10 }}>
+                         <div>
+                         
+                         <button className="btn btn-primary m-2" onClick={this.getAccount}>Get Account</button>
+                         <p style={this.style}>Account</p>
+                         <ul>{this.displayAccount()}</ul>
+
+                         </div>
+                         <div>
+                         <button className="btn btn-primary m-2" onClick={this.getPositions}>Get Positions</button>
+                    
+                         <p style={this.style}>Current Positions</p>
+                         <Stocks style={this.style} data={this.state}/>
+                         <ul>{this.displayPositions()}</ul>
+                         </div> 
+                    </div>
+                    
                </div>
           );
      }

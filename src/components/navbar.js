@@ -4,6 +4,7 @@ class NavBar extends Component {
     styles = {
          fontSize: 50,
          fontWeight: "bold",
+         width: "75%",
     }
 
     render() {
