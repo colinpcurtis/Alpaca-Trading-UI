@@ -24,7 +24,7 @@ class NavBar extends Component {
                   <a className="nav-link" href="#">Features</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Pricing</a>
+                  <a className="nav-link" href="#">Orders</a>
                 </li>
               </ul>
             </div>
