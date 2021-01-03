@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
-import alpacaAPI from '../Services/alpacaAPI';
 
 
-// class Account extends Component {
-//      state = {  }
-//      render() { 
-//           return (  );
-//      }
-// }
+class Account extends Component {
+     displayAccount() {
+          return this.props.account.map(el => 
+               <div>
+                    <ul>
+                         {Object.entries(el).map(([key, value]) => 
+                              <li key={key}>{key}: <b>{String(value)}</b></li>
+                         )}
+                    </ul>
+               </div>
+          );
+     };
+
+     render() { 
+          return ( 
+               <div>{this.displayAccount()}</div>
+           );
+     }
+}
  
-// export default Account;
+export default Account;

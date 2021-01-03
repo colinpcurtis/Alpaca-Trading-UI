@@ -1,49 +1,41 @@
-import React, { Component } from 'react'
-import alpacaAPI from '../Services/alpacaAPI';
+import React, { Component } from 'react';
+
 
 class Stocks extends Component {
-     // state = {
-     //      previouslyRendered: false,
-     //      position: ["ABC"]
-     // }
 
-     // make constructor to do initial render
+     percentChange = (stock) => {
+          return ((stock.current_price - stock.avg_entry_price) / stock.avg_entry_price).toFixed(2);
+     };
 
-     // createPositions = () => {
+     chooseColor(stock) {
+          const stocks = this.props.positions;
+          let value = "badge m-2 badge-";
+          // returns true if change is positive, representing appreciation in value
+          const asset = stocks[stocks.indexOf(stock)];
+          (asset.avg_entry_price < asset.current_price)
+               ? value += "success" : value += "danger";
+          return value;
+     };
 
-     //      // const positions = ["ABC", "DEF"];
-     //      if (!this.state.previouslyRendered) {
-     //           const newItem = "DEF";
-     //           this.setState( {position: this.state.position.concat(newItem)} )
-     //           this.setState( {previouslyRendered: !this.state.previouslyRendered} )
-     //      };
-     // }
-
-     // getPositions = () => {
-     //      this.state.position.map((asset) => <li key={asset}>{asset}</li>)
-     //      console.log(this.state.position)
-     // };
-
-     constructor(props) {
-          super(props);
-          if (this.props.data.previouslyRendered) {
-               this.props.data.positions.map(el => console.log(el.qty));
-               <p>hi</p>
-          }
-          else {
-               <p>nothing to display</p>
-          }
-          
-     }
+     displayPositions() {
+          const stocks = this.props.positions;
+          return stocks.map((stock) => 
+          <div>
+               <li key={stock.symbol} style={this.props.positionsStyle} className={this.chooseColor(stock)}>
+                    {stock.symbol}
+               </li>
+               <p style={this.props.dataStyle}>side: {stock.side}, current price: ${stock.current_price}, pct change: {this.percentChange(stock)}%</p>
+          </div>
+          );
+     };
 
      render() { 
           return (
                <div>
-                    
-
+                    <ul>{this.displayPositions()}</ul>
                </div>
-           );
-     }
-}
+          );
+     };
+};
 
 export default Stocks;
