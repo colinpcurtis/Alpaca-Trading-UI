@@ -1,7 +1,6 @@
 # Alpaca Trading UI
 
 ### Getting Started
-Note: this is very preliminary and still needs a lot of cleaning up, but it allows you to interact with your Alpaca account and interactlively view your trading positions.
 
 To use this project, run ```git clone https://github.com/colinpcurtis/React-Trading-API-Interface.git``` in the terminal.  
 
