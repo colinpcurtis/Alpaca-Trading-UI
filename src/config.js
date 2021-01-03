@@ -1,7 +1,7 @@
 const config = {
     baseURL: "https://paper-api.alpaca.markets",
-    KEY: "PKKAZ9YH52SVF7ZVCNKH",
-    SECRET_KEY: "wlRnhcvs2UtvzuzrskZzdsTNTDnXHrEhO8Se1Cny",
+    KEY: "Your Key Here",
+    SECRET_KEY: "Your Secret Key Here",
 }
 
 export default config
