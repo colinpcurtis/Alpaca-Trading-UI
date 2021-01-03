@@ -2,7 +2,7 @@
 
 ### Getting Started
 
-To use this project, run ```git clone https://github.com/colinpcurtis/React-Trading-API-Interface.git``` in the terminal.  
+To use this project, run ```git clone https://github.com/colinpcurtis/Alpaca-Trading-UI.git``` in the terminal.  
 
 In the ```config.js``` file add your Alpaca Trade API Key and Secret key.  This allows the UI to make API calls to your account and orders.  Then use ```npm start``` to run the project and view the webpage.
 
